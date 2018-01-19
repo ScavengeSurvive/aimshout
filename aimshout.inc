@@ -1,3 +1,9 @@
+// built-in include guard removal
+// just in case the user has a local dependency with the same file name
+#if defined _inc_aimshout
+    #undef _inc_aimshout
+#endif
+// custom include-guard to ensure we don't duplicate
 #if defined _aimshout_included
 	#endinput
 #endif
@@ -5,7 +11,6 @@
 
 #include <YSI\y_hooks>
 #include <tick-difference>
-#include <modio>
 
 #define MAX_AIMSHOUT_TEXT (128)
 
@@ -59,12 +64,4 @@ stock SetPlayerAimShoutText(playerid, string[]) {
 	strcat(aimshout_Text[playerid], string, 128);
 
 	return 1;
-}
-
-hook OnPlayerSave(playerid, filename[]) {
-	modio_push(filename, _T<S,H,O,U>, strlen(aimshout_Text[playerid]), aimshout_Text[playerid]);
-}
-
-hook OnPlayerLoad(playerid, filename[]) {
-	modio_read(filename, _T<S,H,O,U>, 128, aimshout_Text[playerid]);
 }

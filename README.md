@@ -4,15 +4,15 @@ Aim-Shout provides players with a way to communicate easily in the midst of batt
 
 Players can prepare a message and broadcast it nearby using the key-combination aim and look-behind which, by default, is left-mouse-button and middle-mouse-button - right next to each other!
 
-## Usage
+## Installation
 
-Simply add to your `pawn.json` and include:
+Simply install to your project:
 
-```json
-{
-    "dependencies": ["ScavengeSurvive/aimshout"]
-}
+```bash
+sampctl package install ScavengeSurvive/aimshout
 ```
+
+Include in your code and begin using the library:
 
 ```pawn
 #include <aimshout>
